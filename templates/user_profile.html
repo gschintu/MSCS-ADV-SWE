@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}CryptoAdvisor- User Profile Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">User Profile</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> Profile Settings</li>
+    </ol>
+    <div class="card container-sm">
+        <div class="card-body">
+            <form method="POST" action="{{url_for('user_profile')}}">
+
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="{{ user.email }}"
+                        disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="inputName" name="inputName" value="{{ user.name }}"
+                        disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputIncomeRange" class="form-label">Gross Income Range</label>
+                    <select id="inputIncomeRange" name="inputIncomeRange" class="form-select">
+                        <option value="" selected>Choose...</option>
+                        <option value="20" {% if user.gross_income_range=='20' %}selected{% endif %}>$0 - $20,000.00
+                        </option>
+                        <option value="50" {% if user.gross_income_range=='50' %}selected{% endif %}>$20,000.00 -
+                            $50,000.00</option>
+                        <option value="100" {% if user.gross_income_range=='100' %}selected{% endif %}>$50,000.00 -
+                            $100,000.00</option>
+                        <option value="150" {% if user.gross_income_range=='150' %}selected{% endif %}>$100,000.00 -
+                            $150,000.00</option>
+                        <option value="200" {% if user.gross_income_range=='200' %}selected{% endif %}>$150,000.00 -
+                            $200,000.00</option>
+                        <option value="200+" {% if user.gross_income_range=='200+' %}selected{% endif %}>$200,000.00 +
+                        </option>
+                    </select>
+                </div>
+                <div class="input-group col-md-4">
+                    <label for="inputInvestmentAmount" class="form-label">Investment Amount</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input id="inputInvestmentAmount" name="inputInvestmentAmount" type="text" class="form-control"
+                            value="{{ user.investment_amount }}" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputInvestmentRisk" class="form-label">Investment Risk</label>
+                    <select id="inputInvestmentRisk" name="inputInvestmentRisk" class="form-select">
+                        <option value="" selected>Choose...</option>
+                        <option value="low" {% if user.investment_risk=='low' %}selected{% endif %}>Low Risk</option>
+                        <option value="medium" {% if user.investment_risk=='medium' %}selected{% endif %}>Medium Risk
+                        </option>
+                        <option value="high" {% if user.investment_risk=='high' %}selected{% endif %}>High Risk</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

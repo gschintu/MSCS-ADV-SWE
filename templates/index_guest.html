@@ -1,0 +1,298 @@
+<head>
+  <style>
+    .card-icon{
+      fill: hsl(0, 0%, 96%); 
+      padding-top: 3%;
+      padding-bottom: 3%;
+    }
+
+    .crypto-icon{
+      width: 150;
+      height: 150;
+    }
+    .crypto-icon:hover{
+      width: 170;
+      height: 170;
+    }
+
+    .card-style{
+      color: #fff !important;
+      background-color: RGBA(44, 130, 201, var(--bs-bg-opacity, 1)) !important; 
+      min-height: 270px;
+    }
+
+    .card-style:hover{
+      background-color: rgb(97, 204, 239) !important;
+      --bs-card-border-width:5px;
+      --bs-card-border-color: RGBA(44, 130, 201, var(--bs-bg-opacity, 1));
+    }
+
+    .card-title{
+      padding-top: 10px;
+    }
+
+    hr{
+      top: 100px;
+      height:2px;
+      background:black;
+      margin: 3rem 0 !important;
+    }
+
+    /* navbar "unscrolled" */
+    #navbar {
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+    }
+    
+    /* navbar title "unscrolled" */
+    #navbar-title{
+      font-size: 25; 
+      padding-left: 10%;
+    }
+    
+    /* nabar btns "unscrolled" */
+    #navbar > .btn-outline-primary, 
+      #navbar > .btn-primary {
+      background-color: transparent;
+      color: #007bff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* navbar scrolled */ 
+    #navbar.scrolled {
+      background-color: white;
+    }
+
+    #navbar-title.scrolled{
+      color: white;
+    }
+
+    /* navbar btns scrolled */
+    .btn-outline-primary.scrolled, .btn-primary.scrolled {
+      background-color: #007bff; 
+      color: #ffffff;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+          // Scrolled
+          $('#navbar').addClass('bg-primary');
+          $('#navbar-title').removeClass('text-primary').addClass('scrolled');
+          $('.btn-outline-primary, .btn-primary').addClass('btn-outline-light');
+        } else {
+          // UnScrolled
+          $('#navbar').removeClass('bg-primary');
+          $('#navbar-title').addClass('text-primary').removeClass('scrolled');
+          $('.btn-outline-primary, .btn-primary').removeClass('btn-outline-light');
+        }
+      });
+    });
+  </script>
+  <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-light" >
+    <span id="navbar-title" class="navbar-brand mb-0 h1 fw-bold ls-tight text-primary btn btn-link" onclick="window.location.href='/'">Crypto Advisor</span>
+    <div class="navbar-collapse justify-content-end" style="padding-right:4%">
+      <a href="#explore"><button class="navbtn btn btn-outline-primary mx-2 my-2 my-sm-0">Explore</button></a>
+      <a href="#get-started"><button class="navbtn btn btn-outline-primary mx-2 my-2 my-sm-0">Get Started</button></a>
+      <a href="#FAQ"><button class="navbtn btn btn-outline-primary mx-2 my-2 my-sm-0" onclick="window.location.href='/faq'">FAQs</button></a>
+      <button class="btn btn-primary mx-2 my-2 my-sm-0"  onclick="window.location.href='/dev_login'">Login as dev</button>
+    </div>
+  </nav> 
+</head>
+<!-- Section: Design Block -->
+<body class="" style="background-color: hsl(0, 0%, 96%)">
+    <div id="landingsection">
+      <!-- Jumbotron -->
+      <div class="px-4 py-5 px-md-5 text-center text-lg-start" >
+        <div class="container">
+          <div class="row gx-lg-5 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <h1 class="my-5 display-3 fw-bold ls-tight">
+                The best way <br />
+                <span class="text-primary">for you to invest.</span>
+              </h1>
+              <p style="color: hsl(217, 10%, 50.8%)">
+                The crypto coin trading application provides users with
+                personalized investment recommendations based on their 
+                goals.  Have confidence in your investment decisions and 
+                watch your goals become achievments.
+              </p>
+            </div>
+    
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-outline-secondary" style="color:#0d6efd;"  onclick="window.location.href='/login'">
+                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                  </svg>
+                  <b style="padding-left:10px;">Sign In with Google</b>
+                </button>
+                <button class="btn btn-primary" type="button" onclick="window.location.href='\guest_login'">
+                  <b>Sign In with Email</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Jumbotron -->
+    </div>
+    <div id="explore" style="padding-top:3%;">
+      <!-- Explore -->
+      <div class="px-4 py-5 px-md-5 text-center text-lg-start" >
+        <div class="container">
+          <div class="row">
+            <!-- View Trends -->
+            <div class="col-sm-3">
+              <div class="card card-style text-center align-items-stretch" style="border-radius:5%">
+                <div class="card-body" >
+                  <div>
+                    <svg width="100" height="100" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"  class="card-icon">
+                      <path d="M15 13V14H1.5L1 13.5V0H2V13H15Z"/>
+                      <path d="M13 3.207L7.854 8.354H7.146L5.5 6.707L1.854 10.354L1.146 9.646L5.146 5.646H5.854L7.5 7.293L12.646 2.146H13.353L15.353 4.146L14.646 4.854L13 3.207Z"/>
+                    </svg>
+                    <h5 class="card-title">Analyze Trends</h5>
+                    <p class="font-weight-light">View historical Crypto market data using a variety of APIs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Target -->
+            <div class="col-sm-3">
+              <div class="card card-style text-center align-items-stretch" style="border-radius:5%">
+                <div class="card-body">
+                  <div>
+                    <svg width="100" height="100" viewBox="0 0 14 14" class="card-icon" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.485 0.379C11.4637 0.29303 11.4199 0.214268 11.3581 0.150773C11.2964 0.0872786 11.2189 0.0413299 11.1335 0.0176282C11.0482 -0.00607356 10.958 -0.00667756 10.8724 0.015878C10.7867 0.0384335 10.7086 0.0833389 10.646 0.146L8.646 2.146C8.58501 2.20712 8.54089 2.283 8.51793 2.36624C8.49497 2.44948 8.49396 2.53725 8.515 2.621L8.875 4.065C8.87027 4.0696 8.8656 4.07427 8.861 4.079L6.47 6.47C6.33752 6.61217 6.2654 6.80022 6.26883 6.99452C6.27226 7.18882 6.35097 7.37421 6.48838 7.51162C6.62579 7.64903 6.81118 7.72775 7.00548 7.73117C7.19978 7.7346 7.38783 7.66248 7.53 7.53L9.923 5.14C9.92773 5.13506 9.9324 5.13006 9.937 5.125L11.38 5.486C11.4637 5.50704 11.5515 5.50603 11.6348 5.48307C11.718 5.46012 11.7939 5.41599 11.855 5.355L13.855 3.355C13.9179 3.29242 13.9631 3.21422 13.9858 3.12843C14.0085 3.04264 14.0079 2.95236 13.9842 2.86684C13.9605 2.78133 13.9144 2.70367 13.8508 2.64184C13.7871 2.58 13.7082 2.53623 13.622 2.515L11.913 2.089L11.486 0.379H11.485ZM7.317 0.759C7.33074 0.95737 7.26514 1.15308 7.13463 1.30309C7.00411 1.45311 6.81936 1.54516 6.621 1.559C5.5762 1.63141 4.57414 2.00223 3.7339 2.62741C2.89366 3.2526 2.25056 4.10585 1.88102 5.0858C1.51147 6.06574 1.43101 7.13117 1.6492 8.1555C1.86739 9.17983 2.37506 10.12 3.11188 10.8643C3.8487 11.6085 4.7837 12.1257 5.80578 12.3541C6.82786 12.5826 7.89405 12.5129 8.87767 12.1532C9.86128 11.7936 10.721 11.1591 11.3546 10.3252C11.9882 9.49129 12.3691 8.49302 12.452 7.449C12.4678 7.25062 12.5617 7.06663 12.7132 6.93751C12.8646 6.80839 13.0611 6.74472 13.2595 6.7605C13.4579 6.77628 13.6419 6.87022 13.771 7.02166C13.9001 7.17309 13.9638 7.36962 13.948 7.568C13.8422 8.89822 13.3567 10.1701 12.5493 11.2325C11.7419 12.295 10.6465 13.1033 9.39319 13.5615C8.1399 14.0197 6.78142 14.1085 5.47915 13.8173C4.17688 13.5261 2.98556 12.8673 2.04674 11.919C1.10791 10.9707 0.461032 9.7728 0.182963 8.46767C-0.0951057 7.16254 0.00732043 5.80502 0.478073 4.5564C0.948825 3.30777 1.76812 2.22052 2.83861 1.42382C3.9091 0.627121 5.18579 0.154462 6.517 0.0620001C6.71537 0.0482614 6.91108 0.113861 7.0611 0.244375C7.21111 0.37489 7.30316 0.560638 7.317 0.759ZM6.645 4.058C6.68094 4.14973 6.69845 4.24763 6.69654 4.34613C6.69463 4.44463 6.67333 4.54178 6.63386 4.63204C6.5944 4.72231 6.53753 4.80391 6.46652 4.87219C6.39551 4.94047 6.31174 4.9941 6.22 5.03C5.89205 5.15864 5.60132 5.36699 5.37409 5.6362C5.14687 5.90541 4.99031 6.227 4.91858 6.5719C4.84684 6.9168 4.86219 7.27415 4.96323 7.61163C5.06427 7.94912 5.24781 8.2561 5.49728 8.50484C5.74674 8.75358 6.05426 8.93624 6.39204 9.03629C6.72982 9.13635 7.08721 9.15065 7.4319 9.07791C7.77659 9.00517 8.09773 8.84768 8.36627 8.61967C8.63482 8.39167 8.84231 8.10033 8.97 7.772C9.00572 7.68021 9.05917 7.59635 9.1273 7.52521C9.19543 7.45407 9.2769 7.39705 9.36707 7.3574C9.45723 7.31775 9.55433 7.29625 9.6528 7.29412C9.75128 7.29199 9.84921 7.30928 9.941 7.345C10.0328 7.38072 10.1167 7.43417 10.1878 7.5023C10.2589 7.57043 10.316 7.6519 10.3556 7.74207C10.3953 7.83223 10.4168 7.92932 10.4189 8.0278C10.421 8.12628 10.4037 8.22421 10.368 8.316C10.1499 8.87668 9.79551 9.37417 9.33685 9.76348C8.8782 10.1528 8.32975 10.4217 7.74108 10.5458C7.15242 10.6699 6.5421 10.6453 5.96531 10.4743C5.38852 10.3033 4.86343 9.99129 4.43754 9.56638C4.01164 9.14148 3.69835 8.61714 3.52599 8.04075C3.35364 7.46436 3.32766 6.8541 3.45039 6.26514C3.57312 5.67619 3.8407 5.12711 4.22894 4.66754C4.61718 4.20798 5.11383 3.85241 5.674 3.633C5.85913 3.56074 6.06538 3.56491 6.24744 3.64459C6.4295 3.72428 6.57249 3.87297 6.645 4.058Z"/>
+                      </svg>
+                      
+                    <h5 class="card-title">Targeted Recommendations</h5>
+                    <p class="font-weight-light">Get recommended crypto currencies that target your finances.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Crypto -->
+            <div class="col-sm-3">
+              <div class="card card-style text-center align-items-stretch" style="border-radius:5%">
+                <div class="card-body">
+                  <div>
+                    <svg width="100" height="100" viewBox="0 0 20 20" class="card-icon" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.24 8.56C11.93 9.8 10 9.17 9.4 9L9.95 6.82C10.57 7 12.56 7.26 12.24 8.56ZM9.13 10.12L8.53 12.53C9.27 12.72 11.56 13.45 11.9 12.09C12.26 10.67 9.87 10.3 9.13 10.12ZM19.7 12.42C18.36 17.78 12.94 21.04 7.58 19.7C2.22 18.36 -1.037 12.94 0.300001 7.58C0.617644 6.30609 1.18313 5.10723 1.96417 4.0519C2.74521 2.99656 3.72649 2.10543 4.85198 1.4294C5.97747 0.753361 7.22511 0.305666 8.52365 0.111882C9.82218 -0.0819021 11.1462 -0.0179793 12.42 0.3C17.77 1.64 21.03 7.06 19.7 12.42ZM12.21 6.05L12.66 4.25L11.56 4L11.12 5.73C10.83 5.66 10.54 5.59 10.24 5.53L10.68 3.76L9.59 3.5L9.14 5.29C8.9 5.23 8.66 5.18 8.44 5.12L6.93 4.74L6.63 5.91C6.63 5.91 7.45 6.1 7.43 6.11C7.88 6.22 7.96 6.5 7.94 6.75L6.71 11.68C6.66 11.82 6.5 12 6.21 11.95C6.22 11.96 5.41 11.75 5.41 11.75L4.87 13L6.29 13.36C6.56 13.43 6.82 13.5 7.08 13.56L6.62 15.38L7.72 15.66L8.17 13.85C8.47 13.93 8.76 14 9.04 14.08L8.59 15.87L9.69 16.15L10.15 14.33C12 14.68 13.42 14.54 14 12.85C14.5 11.5 14 10.7 13 10.19C13.72 10 14.26 9.55 14.41 8.57C14.61 7.24 13.59 6.53 12.21 6.05Z"/>
+                    </svg>
+                    <h5 class="card-title">Analyze Crypto</h5>
+                    <p class="font-weight-light">Investigate data on over 500 crypto currencies.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Brain -->
+            <div class="col-sm-3">
+              <div class="card card-style text-center align-items-stretch" style="border-radius:5%">
+                <div class="card-body">
+                  <div>
+                    <svg width="100" height="100" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"class="card-icon">
+                      <path d="M4.13 0.793C4.81198 0.276515 5.64452 -0.00205427 6.5 1.18889e-07C6.79545 -0.0066251 7.08779 0.0613785 7.34999 0.197719C7.61218 0.334058 7.83575 0.53433 8 0.78C8.16425 0.53433 8.38782 0.334058 8.65001 0.197719C8.91221 0.0613785 9.20455 -0.0066251 9.5 1.18889e-07C10.3555 -0.00205427 11.188 0.276515 11.87 0.793C12.395 1.201 12.8 1.766 12.943 2.449C13.271 2.474 13.571 2.61 13.823 2.815C14.205 3.125 14.483 3.59 14.658 4.082C14.932 4.847 15.006 5.822 14.722 6.652C14.794 6.686 14.865 6.726 14.934 6.772C15.209 6.955 15.418 7.217 15.572 7.526C15.875 8.131 16 8.975 16 10C16 11.141 15.565 11.907 15.013 12.38C14.7078 12.6417 14.3475 12.8314 13.959 12.935C13.859 13.493 13.579 14.139 13.14 14.687C12.57 15.402 11.686 16 10.5 16C9.56 16 8.812 15.48 8.326 14.97C8.20981 14.8482 8.10095 14.7197 8 14.585C7.89906 14.7197 7.7902 14.8482 7.674 14.97C7.188 15.48 6.441 16 5.5 16C4.314 16 3.431 15.402 2.86 14.687C2.44976 14.1776 2.16878 13.5765 2.041 12.935C1.65248 12.8314 1.29225 12.6417 0.987 12.38C0.435 11.907 0 11.14 0 10C0 8.975 0.126 8.13 0.428 7.526C0.571129 7.22296 0.791085 6.96267 1.066 6.771C1.13354 6.72629 1.20441 6.68684 1.278 6.653C0.994 5.821 1.068 4.847 1.342 4.082C1.517 3.59 1.795 3.125 2.177 2.815C2.429 2.61 2.729 2.475 3.057 2.449C3.201 1.766 3.605 1.201 4.13 0.793ZM7.5 2.5V2.49L7.498 2.44C7.48328 2.1793 7.43142 1.92204 7.344 1.676C7.28176 1.49026 7.17579 1.32221 7.035 1.186C6.8873 1.05738 6.69564 0.990748 6.5 1C5.86694 0.99783 5.25044 1.20216 4.744 1.582C4.28 1.943 4 2.432 4 3C3.99994 3.07918 3.98107 3.15722 3.94496 3.22769C3.90884 3.29815 3.8565 3.35903 3.79225 3.40532C3.728 3.4516 3.65368 3.48196 3.5754 3.4939C3.49712 3.50584 3.41713 3.49902 3.342 3.474C3.154 3.412 2.986 3.447 2.807 3.591C2.611 3.751 2.42 4.035 2.283 4.418C2.004 5.2 2.033 6.147 2.416 6.723C2.4707 6.80503 2.49992 6.9014 2.5 7H3.25C3.84674 7 4.41903 7.23705 4.84099 7.65901C5.26295 8.08097 5.5 8.65326 5.5 9.25V9.585C5.83361 9.70295 6.11478 9.93503 6.29382 10.2402C6.47285 10.5454 6.53823 10.9041 6.4784 11.2529C6.41856 11.6016 6.23736 11.918 5.96683 12.1461C5.6963 12.3741 5.35384 12.4992 5 12.4992C4.64616 12.4992 4.3037 12.3741 4.03317 12.1461C3.76264 11.918 3.58144 11.6016 3.5216 11.2529C3.46177 10.9041 3.52715 10.5454 3.70618 10.2402C3.88522 9.93503 4.16639 9.70295 4.5 9.585V9.25C4.5 8.56 3.94 8 3.25 8H1.5C1.44022 7.9999 1.38095 7.98906 1.325 7.968L1.322 7.974C1.124 8.369 1 9.025 1 10C1 10.859 1.315 11.343 1.638 11.62C1.985 11.918 2.37 12 2.5 12C2.63261 12 2.75979 12.0527 2.85355 12.1464C2.94732 12.2402 3 12.3674 3 12.5C3 12.868 3.2 13.511 3.64 14.063C4.069 14.598 4.686 15 5.5 15C6.06 15 6.562 14.687 6.95 14.28C7.141 14.08 7.29 13.873 7.387 13.703C7.43116 13.6276 7.46895 13.5487 7.5 13.467V5.5H6.415C6.29705 5.83361 6.06497 6.11478 5.75976 6.29382C5.45455 6.47285 5.09588 6.53823 4.74713 6.4784C4.39839 6.41856 4.08202 6.23736 3.85395 5.96683C3.62588 5.6963 3.50079 5.35384 3.50079 5C3.50079 4.64616 3.62588 4.3037 3.85395 4.03317C4.08202 3.76264 4.39839 3.58144 4.74713 3.5216C5.09588 3.46177 5.45455 3.52715 5.75976 3.70618C6.06497 3.88522 6.29705 4.16639 6.415 4.5H7.5V2.5ZM8.5 12.499V13.466C8.53106 13.5477 8.56885 13.6266 8.613 13.702C8.711 13.872 8.859 14.079 9.049 14.279C9.438 14.686 9.941 14.999 10.5 14.999C11.314 14.999 11.931 14.597 12.36 14.062C12.8 13.51 13 12.867 13 12.499C13 12.3664 13.0527 12.2392 13.1464 12.1454C13.2402 12.0517 13.3674 11.999 13.5 11.999C13.63 11.999 14.015 11.917 14.362 11.619C14.685 11.342 15 10.858 15 9.999C15 9.024 14.875 8.369 14.678 7.973C14.6121 7.82554 14.5087 7.69796 14.378 7.603C14.2654 7.53102 14.1335 7.49509 14 7.5C13.9096 7.49995 13.8208 7.47538 13.7432 7.42889C13.6657 7.3824 13.6021 7.31573 13.5595 7.236C13.5168 7.15627 13.4965 7.06645 13.5008 6.97611C13.5052 6.88577 13.5339 6.79829 13.584 6.723C13.968 6.147 13.996 5.2 13.717 4.418C13.58 4.035 13.389 3.75 13.193 3.591C13.014 3.447 12.846 3.411 12.658 3.474C12.5829 3.49902 12.5029 3.50584 12.4246 3.4939C12.3463 3.48196 12.272 3.4516 12.2078 3.40532C12.1435 3.35903 12.0912 3.29815 12.055 3.22769C12.0189 3.15722 12.0001 3.07918 12 3C12 2.432 11.72 1.943 11.255 1.582C10.7488 1.20237 10.1327 0.998047 9.5 1C9.30436 0.990748 9.1127 1.05738 8.965 1.186C8.82379 1.32205 8.71745 1.49013 8.655 1.676C8.5598 1.93721 8.50745 2.21209 8.5 2.49V11.5H9.25C9.94 11.5 10.5 10.94 10.5 10.25V8.415C10.1664 8.29705 9.88522 8.06497 9.70618 7.75976C9.52715 7.45455 9.46177 7.09588 9.5216 6.74713C9.58144 6.39839 9.76264 6.08202 10.0332 5.85395C10.3037 5.62588 10.6462 5.50079 11 5.50079C11.3538 5.50079 11.6963 5.62588 11.9668 5.85395C12.2374 6.08202 12.4186 6.39839 12.4784 6.74713C12.5382 7.09588 12.4729 7.45455 12.2938 7.75976C12.1148 8.06497 11.8336 8.29705 11.5 8.415V10.25C11.5 10.8467 11.2629 11.419 10.841 11.841C10.419 12.2629 9.84674 12.5 9.25 12.5H8.5V12.499ZM4.5 5C4.5 5.13261 4.55268 5.25979 4.64645 5.35355C4.74021 5.44732 4.86739 5.5 5 5.5C5.13261 5.5 5.25979 5.44732 5.35355 5.35355C5.44732 5.25979 5.5 5.13261 5.5 5C5.5 4.86739 5.44732 4.74021 5.35355 4.64645C5.25979 4.55268 5.13261 4.5 5 4.5C4.86739 4.5 4.74021 4.55268 4.64645 4.64645C4.55268 4.74021 4.5 4.86739 4.5 5ZM11 7.5C11.1326 7.5 11.2598 7.44732 11.3536 7.35355C11.4473 7.25979 11.5 7.13261 11.5 7C11.5 6.86739 11.4473 6.74021 11.3536 6.64645C11.2598 6.55268 11.1326 6.5 11 6.5C10.8674 6.5 10.7402 6.55268 10.6464 6.64645C10.5527 6.74021 10.5 6.86739 10.5 7C10.5 7.13261 10.5527 7.25979 10.6464 7.35355C10.7402 7.44732 10.8674 7.5 11 7.5ZM5 10.5C4.86739 10.5 4.74021 10.5527 4.64645 10.6464C4.55268 10.7402 4.5 10.8674 4.5 11C4.5 11.1326 4.55268 11.2598 4.64645 11.3536C4.74021 11.4473 4.86739 11.5 5 11.5C5.13261 11.5 5.25979 11.4473 5.35355 11.3536C5.44732 11.2598 5.5 11.1326 5.5 11C5.5 10.8674 5.44732 10.7402 5.35355 10.6464C5.25979 10.5527 5.13261 10.5 5 10.5Z"/>
+                    </svg>  
+                    <h5 class="card-title">Buy Smarter</h5>
+                    <p class="font-weight-light">Using algorithms to help recommend currencies for users to invest in.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Explore -->
+    </div>
+    <br />
+    <div id="get-started" style="padding-bottom:2%">
+      <!-- Get Started-->
+      <div class="container">
+        <div class="row gx-10">
+          <div class="col-lg-4">
+            <div class="row">
+              <!-- ehterium -->
+              <div class="d-flex justify-content-start">
+                <svg class="crypto-icon" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 784.37 1277.39" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                  <g>
+                    <polygon fill="#343434" fill-rule="nonzero" points="392.07,0 383.5,29.11 383.5,873.74 392.07,882.29 784.13,650.54 "/>
+                    <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,0 -0,650.54 392.07,882.29 392.07,472.33 "/>
+                    <polygon fill="#3C3C3B" fill-rule="nonzero" points="392.07,956.52 387.24,962.41 387.24,1263.28 392.07,1277.38 784.37,724.89 "/>
+                    <polygon fill="#8C8C8C" fill-rule="nonzero" points="392.07,1277.38 392.07,956.52 -0,724.89 "/>
+                    <polygon fill="#141414" fill-rule="nonzero" points="392.07,882.29 784.13,650.54 392.07,472.33 "/>
+                    <polygon fill="#393939" fill-rule="nonzero" points="0,650.54 392.07,882.29 392.07,472.33 "/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="row">
+              <!-- bitcoin -->
+              <div class="d-flex justify-content-center">
+                <svg class="crypto-icon"  xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+                viewBox="0 0 4091.27 4091.73"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                  <path fill="#F7931A" fill-rule="nonzero" d="M4030.06 2540.77c-273.24,1096.01 -1383.32,1763.02 -2479.46,1489.71 -1095.68,-273.24 -1762.69,-1383.39 -1489.33,-2479.31 273.12,-1096.13 1383.2,-1763.19 2479,-1489.95 1096.06,273.24 1763.03,1383.51 1489.76,2479.57l0.02 -0.02z"/>
+                  <path fill="white" fill-rule="nonzero" d="M2947.77 1754.38c40.72,-272.26 -166.56,-418.61 -450,-516.24l91.95 -368.8 -224.5 -55.94 -89.51 359.09c-59.02,-14.72 -119.63,-28.59 -179.87,-42.34l90.16 -361.46 -224.36 -55.94 -92 368.68c-48.84,-11.12 -96.81,-22.11 -143.35,-33.69l0.26 -1.16 -309.59 -77.31 -59.72 239.78c0,0 166.56,38.18 163.05,40.53 90.91,22.69 107.35,82.87 104.62,130.57l-104.74 420.15c6.26,1.59 14.38,3.89 23.34,7.49 -7.49,-1.86 -15.46,-3.89 -23.73,-5.87l-146.81 588.57c-11.11,27.62 -39.31,69.07 -102.87,53.33 2.25,3.26 -163.17,-40.72 -163.17,-40.72l-111.46 256.98 292.15 72.83c54.35,13.63 107.61,27.89 160.06,41.3l-92.9 373.03 224.24 55.94 92 -369.07c61.26,16.63 120.71,31.97 178.91,46.43l-91.69 367.33 224.51 55.94 92.89 -372.33c382.82,72.45 670.67,43.24 791.83,-303.02 97.63,-278.78 -4.86,-439.58 -206.26,-544.44 146.69,-33.83 257.18,-130.31 286.64,-329.61l-0.07 -0.05zm-512.93 719.26c-69.38,278.78 -538.76,128.08 -690.94,90.29l123.28 -494.2c152.17,37.99 640.17,113.17 567.67,403.91zm69.43 -723.3c-63.29,253.58 -453.96,124.75 -580.69,93.16l111.77 -448.21c126.73,31.59 534.85,90.55 468.94,355.05l-0.02 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="row">
+              <!-- tether -->
+              <div class="d-flex justify-content-start">
+              <svg class="crypto-icon" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 339.43 295.27">
+                <path d="M62.15,1.45l-61.89,130a2.52,2.52,0,0,0,.54,2.94L167.95,294.56a2.55,2.55,0,0,0,3.53,0L338.63,134.4a2.52,2.52,0,0,0,.54-2.94l-61.89-130A2.5,2.5,0,0,0,275,0H64.45a2.5,2.5,0,0,0-2.3,1.45h0Z" style="fill:#50af95;fill-rule:evenodd"/>
+                <path d="M191.19,144.8v0c-1.2.09-7.4,0.46-21.23,0.46-11,0-18.81-.33-21.55-0.46v0c-42.51-1.87-74.24-9.27-74.24-18.13s31.73-16.25,74.24-18.15v28.91c2.78,0.2,10.74.67,21.74,0.67,13.2,0,19.81-.55,21-0.66v-28.9c42.42,1.89,74.08,9.29,74.08,18.13s-31.65,16.24-74.08,18.12h0Zm0-39.25V79.68h59.2V40.23H89.21V79.68H148.4v25.86c-48.11,2.21-84.29,11.74-84.29,23.16s36.18,20.94,84.29,23.16v82.9h42.78V151.83c48-2.21,84.12-11.73,84.12-23.14s-36.09-20.93-84.12-23.15h0Zm0,0h0Z" style="fill:#fff;fill-rule:evenodd"/>
+              </svg>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <hr />
+            <h2 class="text-primary">
+              <b>Let's Get Started</b>
+            </h2>
+            <div class="text-secondary">
+              <div class="row" style="padding-top: 3%">
+                <br />
+                <h3><b>1. Create an account</b></h3>
+              </div>
+              <div class="row" style="padding-top: 3%">
+                <br />
+                <h3><b>2. Answer some questions regarding how you want to invest</b></h3>
+              </div>
+              <div class="row" style="padding-top: 3%">
+                <br />
+                <h3><b>3. Start exploring recommended currencies</b></h3>
+              </div>
+            </div>
+            <div style="padding-top:10%" class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button" onclick="window.location.href='/login'">
+                <b>Get Started</b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Section: Design Block -->
+  

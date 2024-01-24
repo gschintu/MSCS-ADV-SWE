@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}CryptoAdvisor - Crypto History{% endblock %}
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Homepage</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> List</li>
+    </ol>
+    <div class="mb-3">
+        <div class="card">
+            <div class="card-header">
+                Refresh Crypto from Alpha Vantage API
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Download FMP API History Data</h5>
+                <p class="card-text">You may want to Download and update our stored data for the FMP API History Data every now and then</p>
+                <form method="POST" action="{{url_for('crypto_history')}}">
+                    <input type="hidden" name="updateOperation" id="updateOperation" value="downloadFMPHistoryFull"/>
+                    <button type="submit" class="btn btn-primary">Download & Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            FPM API Crypto History
+        </div>
+        <div class="card-body">
+            <table id="datatable_FPM_CryptoHistory">
+                <thead>
+                    <tr>
+                        <th>Coin</th>
+                        <th>Avg. Change %</th>
+                        <th>Avg. Change O/T</th>
+                        <th>Avg. Min Price</th>
+                        <th>Avg. Max Price</th>
+                        <th>Min Price</th>
+                        <th>Max Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rec in FPM_crypto_history %}
+                        <tr>
+                            <td>{{ rec['coin'] }}</td>
+                            <td>{{ rec['avg_change_percent'] }}</td>
+                            <td>{{ rec['avg_change_over_time'] }}</td>
+                            <td>{{ rec['avg_price_low'] }}</td>
+                            <td>{{ rec['avg_price_high'] }}</td>
+                            <td>{{ rec['min_price_low'] }}</td>
+                            <td>{{ rec['max_price_high'] }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# Python Virtualenv
+venv/
+.env/
+
+# __pycache__ directories
+**/__pycache__
+
+# Environment variable file
+.env

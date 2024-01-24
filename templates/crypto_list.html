@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}CryptoAdvisor- Currency List Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Crypto Currencies</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> List</li>
+    </ol>
+    <div class="mb-3">
+        <div class="card">
+            <div class="card-header">
+                Refresh Crypto from Alpha Vantage API
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Update Crypto List</h5>
+                <p class="card-text">Reload Crypto List from API to add new Cryptos.</p>
+                <form method="POST" action="{{url_for('crypto_list')}}">
+                    <input type="hidden" name="updateOperation" id="updateOperation" value="updateCryptoList"/>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Available Crypto Currencies <span class="badge text-bg-info">(Click on a cell to edit value, and when done just press Enter or leave the cell)</span>
+        </div>
+        <div class="card-body">
+                <table id="datatablesListCurrencies" class="display">
+                <thead>
+                    <tr>
+                        <th width="0"></th>
+                        <th>Code</th>
+                        <th>Active</th>
+                        <th>Description</th>
+                        <th>Code AlphaVantage</th>
+                        <th>Code CoinGecko</th>
+                        <th>Code Financial Modeling Prep</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for currency in FPM_crypto_history %}
+                        <tr>
+                            <td>{{ currency['id'] }}</td>
+                            <td>{{ currency['code'] }}</td>
+                            <td>{{ currency['is_active'] }}</td>
+                            <td>{{ currency['desc'] }}</td>
+                            <td>{{ currency['code_AG'] }}</td>
+                            <td>{{ currency['code_CG'] }}</td>
+                            <td>{{ currency['code_FMP'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}CryptoAdvisor- User List Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Users</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> List</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Logged-in Users
+        </div>
+        <div class="card-body">
+            <table id="datatableUserList">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Gross Income Range</th>
+                        <th>Investment Amount</th>
+                        <th>Investment Risk</th>
+                        <th>Admin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user['id'] }}</td>
+                            <td>{{ user['email'] }}</td>
+                            <td>{{ user['name'] }}</td>
+                            <td>{{ user['gross_income_range'] }}</td>
+                            <td>{{ user['investment_amount'] }}</td>
+                            <td>{{ user['investment_risk'] }}</td>
+                            <td>{{ user['is_admin'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

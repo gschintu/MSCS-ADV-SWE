@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}CryptoAdvisor - Home Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Homepage</h1>
+    {% if is_profile_complete %}
+        Based on your profile, you may want to consider the following Cryptos
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">
+            
+        </li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Crypto Recommendation
+        </div>
+        <div class="card-body">
+
+
+            <div class="row align-items-start">
+                <div class="col">
+                    <table id="datatable_CryptoRecommendation" class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Coin</th>
+                                <th class="text-center">Avg. Change %</th>
+                                <th class="text-end">Avg. Change O/T</th>
+                                <th class="text-end">Max Recommended Risk $</th>
+                                <th class="text-end">Recommended Risk $</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-striped">
+                            {% for reco_invest in recommended_investments %}
+                                <tr>
+                                    <td class="text-center">{{ reco_invest['coin'] }}</td>
+                                    <td class="text-center">{{ reco_invest['avg_change_percent'] }}</td>
+                                    <td class="text-end">{{ reco_invest['avg_change_over_time'] }}</td>
+                                    <td class="text-end">{{ reco_invest['max_risk_investment'] }}</td>
+                                    <td class="text-end">{{ reco_invest['proper_risk_investment'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col">
+                    <script src="https://price-static.crypto.com/latest/public/static/widget/index.js"></script> 
+                    <div id="crypto-widget-CoinList" data-transparent="true" data-design="classic" data-coin-ids="1,166,136,20,440,29,2,79,379"></div>
+                </div>
+
+              </div>
+
+        </div>
+    </div>
+    {% else %}
+            <h2> Please complete your <a class="text-primary" href="{{url_for('user_profile')}}">Profile</a> for any recommendations</h2>
+    {% endif %}
+</div>
+{% endblock %}
